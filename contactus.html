@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SK.GlobalConsultant</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<style>
+    body {
+        background-image:url("https://th.bing.com/th/id/R.ff8fd16a51b71a604aa63c64eeddfaf9?rik=nYhUUCu%2fVRqEtQ&riu=http%3a%2f%2fwww.crdeepjournal.org%2fwp-content%2fuploads%2f2011%2f12%2fcontact_us.png&ehk=rcC040g8hVmvC4GKuojSeKm9grveMRDTd9fvjwxk9Jo%3d&risl=&pid=ImgRaw&r=0");
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    
+    header {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    main {
+        padding: 10%;
+        transform-origin:top center ;
+        text-orientation: upright;
+        margin:auto;
+        border-radius: 2px;
+    }
+    
+    .contact-us, .contact-form {
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        padding: 9px;
+    }
+    
+    
+    
+    .phone-container,.Email-conatiner {
+        display: flex;
+        align-items: center;
+        justify-content:left;
+        border: 1px solid #007BFF; /* Change color as needed */
+        border-radius: 25px;
+        padding: 10px;
+        background-color: #f9f9f9; /* Background color */
+    }
+    
+    .phone-icon,.Email-icon{
+        width: 24px; /* Size of the icon */
+        height: 24px; /* Size of the icon */
+        margin-right: 10px; /* Space between icon and text */
+    }
+    
+    .phone-number {
+        font-size: 18px; /* Font size for the phone number */
+        color: #333; /* Text color */
+    }
+    
+    
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #007bff;
+        color: white;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+    <main>
+        <section class="contact-us">
+            <button type="button" class="btn btn-primary btn-lg">Hello!</button>
+            <h2>Call us, Anyway!</h2>
+            <div class="phone-container">
+                <img src="phone.jpeg" alt="Phone" class="phone-icon">
+                <span class="phone-number">91 7591036760</span>
+            </div>
+            <h2>Get in Touch</h2>
+            <p>If you have any questions about our services or need assistance, please feel free to reach out to us via the following methods:</p>
+            <div class="Email-conatiner">
+            <img src="Eamil.jpeg" alt="Email" class="Email-icon">
+            <span class="Email">Email:<a href="mailto:info@skglobalconsultant.com">sk.globalconsultant@gmail.com</a></span>
+            </div>
+            <p>We aim to respond to all inquiries within 24 hours.</p>
+        </section>
+        
+        <section class="contact-form">
+            <h2>Contact Form</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SK.GlobalConsultant. All rights reserved.</p>
+    </footer>
+</body>
+</html>

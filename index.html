@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK.GlobalConsultant</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- New font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+
+        }
+
+
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background-color: transparent;
+            /* Transparent background initially */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+            padding: 15px 20px;
+            box-shadow: none;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(67, 129, 222, 0.85);
+            /* Semi-opaque background on scroll */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+
+            padding: 10px;
+            /* Optional: add some padding for better spacing */
+        }
+
+
+        .navbar .logo {
+            width: 100px;
+            height: 100px;
+            margin-right: 5px;
+        }
+
+        .navbar-brand h1 {
+            font-size: 30px;
+            /* Default font size for larger screens */
+            margin: 0;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Media Query for Smaller Screens */
+        @media (max-width: 768px) {
+
+            /* Adjust this breakpoint as needed */
+            .navbar-brand h1 {
+                font-size: 24px;
+                /* Reduced font size for smaller screens */
+            }
+        }
+
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            margin: 0 10px;
+            color: #ffffff;
+            transition: color 0.3s ease, transform 0.3s ease;
+            /* Smooth hover transition */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f2a900;
+            transform: scale(1.05);
+            /* Slight zoom effect on hover */
+        }
+
+        .navbar-toggler-icon {
+            color: #ffffff;
+        }
+
+        /* Modern Button Styles */
+        .navbar-toggler {
+            border: none;
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #f2a900 !important;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link.active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #f2a900;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            width: 100%;
+            max-height: 600px;
+            /* Adjust the height as needed */
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            height: 100%;
+            /* Set the height of the inner carousel */
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Cover the entire area */
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Adds a translucent background to captions */
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+            /* Make captions absolute to control position */
+            bottom: 20px;
+            /* Distance from the bottom */
+            left: 50%;
+            /* Center the caption */
+            transform: translateX(-50%);
+            /* Center adjustment */
+            width: 80%;
+            /* Optional: Adjust width of caption */
+            text-align: center;
+            /* Center text */
+        }
+
+
+        /* Visa Categories Styles */
+        .visa-categories {
+            padding: 60px 20px;
+            /* Padding for the visa categories section */
+            background-color: #f8f9fa;
+            /* Light background color */
+        }
+
+        .visa-card {
+            border: 1px solid #dee2e6;
+            /* Light border for cards */
+            border-radius: 10px;
+            /* Rounded corners */
+            transition: transform 0.3s;
+            /* Transition for hover effect */
+        }
+
+        .visa-card:hover {
+            transform: translateY(-5px);
+            /* Slight lift on hover */
+        }
+
+        .visa-title {
+            font-size: 20px;
+            /* Font size for titles */
+            font-weight: bold;
+            color: #343a40;
+            /* Dark color for titles */
+        }
+
+        .visa-description {
+            font-size: 14px;
+            /* Font size for description */
+            color: #6c757d;
+            /* Gray color for description */
+        }
+
+        .read-more {
+            color: #007bff;
+            /* Bootstrap primary color */
+            text-decoration: none;
+            /* No underline */
+        }
+
+        .about-section {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .about-section h2 {
+            color: #4381de;
+        }
+
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .about-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+
+        .quote-section {
+            background-color: #e9ecef;
+            /* Light background color */
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blockquote {
+            font-style: italic;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .blockquote-footer {
+            font-size: 16px;
+            color: #555;
+        }
+
+        hr {
+            border: 1px solid #4381de;
+            /* Custom color for the separator */
+            width: 50%;
+            /* Width of the separator */
+            margin: auto;
+            /* Center the separator */
+        }
+
+        .internship-section {
+            background-color: #f9f9f9;
+            /* Light background color */
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+            padding: 40px;
+            /* Padding around the content */
+        }
+
+        .internship-section h2 {
+            color: #4381de;
+            /* Title color */
+        }
+
+        .internship-section h5 {
+            color: #6c757d;
+            /* Subtitle color (optional) */
+        }
+
+        .internship-section p {
+            font-size: 16px;
+            /* Font size for paragraphs */
+            line-height: 1.6;
+            /* Line height for better readability */
+        }
+
+        .internship-section img {
+            max-width: 100%;
+            /* Ensure the image is responsive */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 10px;
+            /* Rounded corners for the image */
+        }
+
+
+        .consultancy-section {
+            background-color: #f8f9fa;
+            /* Light background color */
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            /* Margin for spacing */
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #4381de;
+            /* Title color */
+            margin-bottom: 20px;
+        }
+
+        .lead {
+            font-size: 18px;
+            color: #333;
+            /* Text color */
+        }
+
+        .btn-primary {
+            background-color: #4381de;
+            /* Custom button color */
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #3b70c0;
+            /* Darker shade on hover */
+        }
+
+        .offering-section {
+            background-color: #e9ecef;
+            /* Light gray background color */
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            /* Margin for spacing */
+        }
+
+        .country-title {
+            font-size: 24px;
+            color: #4381de;
+            /* Title color */
+            margin-bottom: 15px;
+        }
+
+        .offering-card {
+            background-color: #fff;
+            /* White background for cards */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            /* Smooth hover effect */
+        }
+
+        .offering-card:hover {
+            transform: scale(1.05);
+            /* Scale effect on hover */
+        }
+
+        .lead {
+            font-size: 18px;
+            color: #333;
+            /* Text color */
+            margin-bottom: 30px;
+        }
+
+        .query-section {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .query-section h2 {
+            color: #4381de;
+        }
+
+        .query-section h5 {
+            color: #333;
+        }
+
+        .query-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .query-section .form-group {
+            margin-bottom: 20px;
+        }
+
+        .query-section .btn-primary {
+            background-color: #4381de;
+            /* Custom button color */
+            border: none;
+        }
+
+        .query-section .btn-primary:hover {
+            background-color: #3b70c0;
+            /* Darker shade on hover */
+        }
+
+        /* Footer Styles */
+        .footer-section {
+            background-color: #f0f4ff;
+            /* Light blue background color */
+            color: #333;
+            /* Dark text color */
+            padding: 40px 20px;
+            border-top: 2px solid #4381de;
+            /* Top border for distinction */
+        }
+
+        .footer-section h5 {
+            color: #4381de;
+            /* Custom color for headings */
+            margin-bottom: 15px;
+            /* Space below headings */
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            /* Font size for paragraph text */
+            line-height: 1.5;
+            /* Line height for readability */
+        }
+
+        .footer-section .input-group {
+            margin-top: 10px;
+            /* Space above input group */
+        }
+
+        .footer-section .btn-primary {
+            background-color: #4381de;
+            /* Custom button color */
+            border: none;
+            /* Remove border */
+        }
+
+        .footer-section .btn-primary:hover {
+            background-color: #3b70c0;
+            /* Darker shade on hover */
+        }
+
+        .footer-section .text-center {
+            margin-top: 20px;
+            /* Space above copyright */
+        }
+
+        .faq-section {
+            padding: 60px 20px;
+            /* Padding for the FAQ section */
+            background-color: #f0f4ff;
+            /* Match footer light background color */
+            border-top: 2px solid #4381de;
+            /* Consistent border with footer */
+        }
+
+        .faq-card {
+            border: 1px solid #dee2e6;
+            /* Light border for cards */
+            border-radius: 10px;
+            /* Rounded corners */
+            transition: transform 0.3s;
+            /* Transition for hover effect */
+            background-color: #ffffff;
+            /* White background for cards */
+        }
+
+        .faq-card:hover {
+            transform: translateY(-5px);
+            /* Slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add shadow on hover */
+        }
+
+        .faq-question {
+            font-size: 20px;
+            /* Font size for questions */
+            font-weight: bold;
+            color: #343a40;
+            /* Dark color for questions */
+            cursor: pointer;
+            /* Cursor pointer to indicate clickable */
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            /* Font size for answer */
+            color: #6c757d;
+            /* Gray color for answer */
+            padding-top: 10px;
+            /* Padding above the answer text */
+        }
+
+        .moving-text-section {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .moving-text {
+            white-space: nowrap;
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+            font-size: 24px;
+            color: #4381de;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .gap {
+            margin-right: 15px; /* Adjust the gap size as needed */
+        }
+        .why-study-abroad {
+            background-color: #f2f9ff;
+            padding: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .text-content {
+            padding-right: 20px; /* Adjust spacing between text and image */
+        }
+        
+        .reason-title {
+            color: #4381de;
+            margin-top: 20px; /* Add some spacing above each title */
+        }
+        
+        .reason-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px; /* Add space between descriptions */
+        }
+        
+        img {
+            border-radius: 10px; /* Rounded corners for the image */
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets/logo2_withoutbackground.png" alt="SK.GlobalConsultant Logo" class="logo" width="50">
+                <!-- Company Logo -->
+                <h1> SK.GlobalConsultant </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#offering">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#internship">Internship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full Width Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/india-us.jpg" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First Slide</h5>
+                    <p>Description for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/world_map.jpg" class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second Slide</h5>
+                    <p>Description for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/visa-img for slider.jpg" class="d-block w-100" alt="Slide 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third Slide</h5>
+                    <p>Description for the third slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/slider2.jpg" class="d-block w-100" alt="Slide 4">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Fourth Slide</h5>
+                    <p>Description for the fourth slide.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    <section class="moving-text-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Welcome to SK.GlobalConsultant</h2>
+            <div class="moving-text">
+                <p>
+                    <span class="gap">Study.Migrate.Evolve.</span>
+                    
+                    <span class="gap">We value your money and time.</span>
+                    <span class="gap">Building trust through Service.</span>
+                    <span class="gap">We help Choose Right Countries and Right Place.</span>
+                    <span class="gap">Intern.Train.Work</span>
+                   
+                </p>
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">About SK Consultant</h2>
+            <h5 class="text-center mb-4">Immigration Services from Experienced Agents</h5>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>
+                        <strong>SK Consultant</strong> is a distinguished group of professionals boasting over a decade
+                        of global experience combined with specialized domain expertise. Our collaborative teamwork has
+                        fostered an organizational environment centered around three core values: <strong>Trust,
+                            Transparency, and Talent</strong>.
+                    </p>
+                    <p>
+                        Since our establishment in 2022, we have developed proficiency in various international business
+                        domains. Our service offerings span five major areas, allowing us to swiftly leverage our
+                        expertise to create <strong>“Opportunities across the World.”</strong>
+                    </p>
+                    <p>
+                        <strong>Approved by the Government of India</strong>, we provide accurate guidance tailored to
+                        your immigration needs, ensuring that you receive the best possible support on your journey.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="assets/logo.jpg" alt="Immigration Services" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="why-study-abroad">
+        <div class="container">
+            <h2 class="text-center mb-4">Why Study Abroad?</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="assets/study-abroad.jpg" class="img-fluid" alt="Study Abroad">
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-content">
+                        <h5 class="reason-title">Cultural Experience</h5>
+                        <p class="reason-description">Immerse yourself in a new culture, meet new people, and broaden your perspectives.</p>
+    
+                        <h5 class="reason-title">Quality Education</h5>
+                        <p class="reason-description">Access world-class education and gain knowledge from experienced professors and researchers.</p>
+    
+                        <h5 class="reason-title">Career Opportunities</h5>
+                        <p class="reason-description">Enhance your resume and increase your employability in the global job market.</p>
+    
+                        <h5 class="reason-title">Language Skills</h5>
+                        <p class="reason-description">Improve your language skills by studying in a country where the language is spoken.</p>
+    
+                        <h5 class="reason-title">Personal Growth</h5>
+                        <p class="reason-description">Develop independence, confidence, and adaptability as you navigate new challenges.</p>
+    
+                        <h5 class="reason-title">Networking Opportunities</h5>
+                        <p class="reason-description">Build a global network of friends, mentors, and professional contacts.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <section id="offering" class="offering-section py-5">
+        <div class="container text-center">
+            <h2 class="section-title">Our Offerings</h2>
+            <p class="lead">
+                We specialize in providing career consultancy services in two main destinations: the USA and France.
+                Explore your opportunities for internships and professional growth in these vibrant countries.
+            </p>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="offering-card">
+                        <h3 class="country-title">USA</h3>
+                        <p>Discover a diverse range of opportunities in various fields including technology, healthcare,
+                            and business.</p>
+                        <p>Our consultancy helps you navigate the requirements and secure internships to kick-start your
+                            career.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="offering-card">
+                        <h3 class="country-title">France</h3>
+                        <p>Experience the rich culture and dynamic job market in France. We offer consultancy services
+                            to help you understand the landscape.</p>
+                        <p>Get support for internships that enhance your skills and broaden your professional network.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Visa Categories Section -->
+    <section class="visa-categories">
+        <div class="container">
+            <h2 class="text-center mb-4">Visa Categories</h2>
+            <p class="text-center mb-5">Assisting you in fulfilling your eligibility for immigrant registration.</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="visa-card p-3">
+                        <h5 class="visa-title">Tourist Visa</h5>
+                        <p class="visa-description">Experience the beauty and culture of your chosen destination with a
+                            Tourist Visa.</p>
+                        <a href="#" class="read-more" data-toggle="modal" data-target="#touristModal">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="visa-card p-3">
+                        <h5 class="visa-title">Student Visa</h5>
+                        <p class="visa-description">Study abroad and gain valuable international experience with a
+                            Student Visa.</p>
+                        <a href="#" class="read-more" data-toggle="modal" data-target="#studentModal">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="visa-card p-3">
+                        <h5 class="visa-title">J-1 Visa</h5>
+                        <p class="visa-description">Join the J-1 Exchange Visitor Program and immerse yourself in a new
+                            culture.</p>
+                        <a href="#" class="read-more" data-toggle="modal" data-target="#j1Modal">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tourist Visa Modal -->
+        <div class="modal fade" id="touristModal" tabindex="-1" role="dialog" aria-labelledby="touristModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="touristModalLabel">Tourist Visa Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>The Tourist Visa allows travelers to visit a country for leisure and tourism. This visa is
+                            typically valid for a limited period and is intended for those looking to explore new
+                            destinations.</p>
+                        <p>Eligibility criteria include:
+                        <ul>
+                            <li>Valid passport for at least six months beyond the planned stay.</li>
+                            <li>Proof of sufficient funds for the duration of the stay.</li>
+                            <li>Travel itinerary and accommodation details.</li>
+                        </ul>
+                        </p>
+                        <p>For further information, please contact us or refer to the official tourist visa guidelines.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Visa Modal -->
+        <div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="studentModalLabel">Student Visa Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>The Student Visa is intended for individuals who wish to study in a foreign country. This
+                            visa allows you to enroll in accredited educational programs and can often be extended
+                            depending on your study duration.</p>
+                        <p>Eligibility criteria include:
+                        <ul>
+                            <li>Acceptance into a recognized educational institution.</li>
+                            <li>Proof of financial means to support your education and living expenses.</li>
+                            <li>Proficiency in the language of instruction.</li>
+                        </ul>
+                        </p>
+                        <p>For more information, please reach out to us or check the official student visa requirements.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- J-1 Visa Modal -->
+        <div class="modal fade" id="j1Modal" tabindex="-1" role="dialog" aria-labelledby="j1ModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="j1ModalLabel">J-1 Visa Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>The J-1 Visa is for individuals approved to participate in work-and-study-based exchange
+                            visitor programs. This visa allows you to experience cultural exchange while gaining
+                            valuable skills in your field.</p>
+                        <p>Eligibility criteria include:
+                        <ul>
+                            <li>Must be sponsored by an approved organization.</li>
+                            <li>Must be proficient in English.</li>
+                            <li>Must meet the requirements of the specific exchange program.</li>
+                        </ul>
+                        </p>
+                        <p>For more information, please contact us or visit the official J-1 Visa website.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div style="height: 500px; 
+             background-image: url('assets/assortment-different-traveling-elements.jpg'); 
+             background-size: cover; 
+             background-repeat: no-repeat; 
+             background-position: center;">
+    </div>
+    <!-- Internship Section -->
+    <section id="internship" class="internship-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Internship Opportunities</h2>
+            <h5 class="text-center mb-4">Gain Valuable Experience with Global Exposure</h5>
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="assets/slider1.jpg" alt="Internship Opportunities" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <p>
+                        <strong>Internships</strong> provide a crucial stepping stone for students and recent graduates
+                        to bridge the gap between education and the professional world. Our programs are designed to
+                        offer real-world experience, allowing participants to apply their academic knowledge in
+                        practical settings.
+                    </p>
+                    <p>
+                        By participating in an internship, you will not only enhance your skills and gain insight into
+                        your desired industry but also expand your professional network. Our internships span various
+                        fields, including <strong>Hospitality, Tourism, IT, and Management</strong>, ensuring that you
+                        find the right fit for your career aspirations.
+                    </p>
+                    <p>
+                        With our esteemed partnerships and a commitment to <strong>cross-cultural
+                            understanding</strong>, we aim to create opportunities that empower you to grow personally
+                        and professionally while making meaningful contributions to your host organization.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivating Quote Section -->
+    <section class="quote-section py-5">
+        <div class="container text-center">
+            <blockquote class="blockquote">
+                <p class="mb-0">"The future belongs to those who believe in the beauty of their dreams."</p>
+
+            </blockquote>
+            <hr class="my-4">
+            <blockquote class="blockquote">
+                <p class="mb-0">"Success is not final; failure is not fatal: It is the courage to continue that counts."
+                </p>
+
+            </blockquote>
+            <hr class="my-4">
+            <blockquote class="blockquote">
+                <p class="mb-0">"Your time is limited, don’t waste it living someone else’s life."</p>
+
+            </blockquote>
+        </div>
+    </section>
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <p class="text-center mb-5">Your queries answered for a seamless experience.</p>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="faq-card p-3">
+                        <h5 class="faq-question" data-toggle="collapse" data-target="#faq1" aria-expanded="false"
+                            aria-controls="faq1">
+                            What is the process for applying for a visa?
+                        </h5>
+                        <div id="faq1" class="collapse faq-answer">
+                            <p>The visa application process varies by category, but generally includes submitting an
+                                application form, providing necessary documents, and attending an interview.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="faq-card p-3">
+                        <h5 class="faq-question" data-toggle="collapse" data-target="#faq2" aria-expanded="false"
+                            aria-controls="faq2">
+                            How long does it take to process a visa application?
+                        </h5>
+                        <div id="faq2" class="collapse faq-answer">
+                            <p>Processing times can vary, but typically range from a few weeks to several months
+                                depending on the visa category and country.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="faq-card p-3">
+                        <h5 class="faq-question" data-toggle="collapse" data-target="#faq3" aria-expanded="false"
+                            aria-controls="faq3">
+                            What documents are required for a student visa?
+                        </h5>
+                        <div id="faq3" class="collapse faq-answer">
+                            <p>Common documents include a valid passport, admission letter from the educational
+                                institution, proof of financial means, and health insurance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="faq-card p-3">
+                        <h5 class="faq-question" data-toggle="collapse" data-target="#faq4" aria-expanded="false"
+                            aria-controls="faq4">
+                            Can I work while on a student visa?
+                        </h5>
+                        <div id="faq4" class="collapse faq-answer">
+                            <p>Yes, many student visas allow part-time work while studying, but there are restrictions
+                                on the number of hours you can work.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="consultancy-section py-5">
+        <div class="container text-center">
+            <h2 class="section-title">Unlock Your Dream Career</h2>
+            <p class="lead">
+                If you are looking for consultancy for your dream destination for career growth, you have a great
+                opportunity to fulfill your achievement.
+            </p>
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-md-7 mb-3"> <!-- Left column covering 70% -->
+                    <span class="lead">Join us through registration!</span>
+                </div>
+                <div class="col-lg-4 col-md-5"> <!-- Right column covering 30% -->
+                    <a href="#registration" class="btn btn-primary btn-lg">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="query" class="query-section py-5">
+        <header class="text-center mb-4">
+            <h2>Have Questions? We’re Here to Help!</h2>
+        </header>
+        <article class="row">
+            <aside class="col-lg-6">
+                <h5>We're Here for You</h5>
+                <p>
+                    If you have any queries regarding our services or need assistance, feel free to reach out.
+                    We assure you that our team will get back to you as soon as possible to address your concerns
+                    and provide the necessary support. Your satisfaction is our priority!
+                </p>
+            </aside>
+            <aside class="col-lg-6">
+                <h5>Fill in Your Query</h5>
+                <form action="sendemail.php" method="POST">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile"
+                            placeholder="Enter your mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="query">Your Query</label>
+                        <textarea class="form-control" id="query" name="query" rows="3"
+                            placeholder="Write your query here" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address"
+                            placeholder="Enter your address" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </aside>
+        </article>
+    </section>
+
+
+    <footer class="footer-section py-5">
+        <div class="container">
+            <div class="row">
+                <!-- About Us Section -->
+                <div class="col-md-4">
+                    <h5>About Us</h5>
+                    <p>Sed gravida nisl a porta tincidunt. Integer aliquam nisi sit amet magna suscipit, fermentum
+                        mattis erat rutrum. Porta semper lacus cursus.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+
+                <!-- Office Info Section -->
+                <div class="col-md-4">
+                    <h5>Office Info</h5>
+                    <p>Company: SK Global Consultant</p>
+                    <p>Phone: +91 75910 36760</p>
+                    <p>Email: <a href="mailto:sk.globalcounsaltant@gmail.com">sk.globalcounsaltant@gmail.com</a></p>
+                    <p>Address: Ghumarwin,<br> District: Bilaspur,<br> State: Himachal Pradesh,<br> PIN: 174021, India
+                    </p>
+
+                    <!-- Social Media Icons -->
+                    <div class="social-media">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/sk.globalcounsaltant?igsh=dDlxdnJ4a2I1Y3Vv" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- LinkedIn Icon -->
+                        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <!-- Facebook Icon -->
+                        <a href="https://www.facebook.com/yourprofile" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+
+                    <style>
+                        /* Social Media Icons */
+                        .social-media a {
+                            margin-left: 15px;
+                            color: #2b95e1;
+                            /* Icon color */
+                            font-size: 24px;
+                            /* Icon size */
+                        }
+
+                        .social-media a:hover {
+                            color: #f2a900;
+                            /* Hover color */
+                        }
+                    </style>
+                </div>
+
+                <!-- Newsletter and Recent Posts Section -->
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter to get our latest updates & news</p>
+                    <form action="subscribe.php" method="POST">
+                        <div class="input-group mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email"
+                                required>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- <h5>Recent Posts</h5>
+                <p><strong>Admin</strong> December 30, 2020<br>Make a proper salad with high proteins.</p>
+                <p><strong>Admin</strong> December 29, 2020<br>Make a proper salad with high proteins.</p> -->
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="text-center mt-4">
+                <p>&copy; 2024 SK Global Consultant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Change navbar style on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Filter FAQ items based on search input
+            $('#searchBar').on('keyup', function () {
+                var value = $(this).val().toLowerCase();
+                $('.faq-item').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
